@@ -1,0 +1,86 @@
+{
+  "content_type": "html",
+  "weights": {
+    "rouge1": 0.15,
+    "rouge2": 0.15,
+    "rougeL": 0.10,
+    "structure": 0.30,
+    "impl": 0.30
+  },
+  "requirements": {
+    "semantic_structure": {
+      "description": "Use of semantic HTML elements",
+      "patterns": ["<header", "<nav", "<main", "<section", "<article", "<aside", "<footer", "<figure", "<figcaption", "<time"],
+      "weight": 1.0
+    },
+    "responsive_design": {
+      "description": "Responsive design implementation",
+      "patterns": ["sm:", "md:", "lg:", "xl:", "2xl:", "flex-col", "flex-row", "hidden", "block", "w-full", "container", "mx-auto"],
+      "weight": 1.0
+    },
+    "accessibility": {
+      "description": "Accessibility features",
+      "patterns": ["aria-", "role=", "alt=", "sr-only", "focus:ring", "focus:outline", "tabindex", "<label", "for=", "<fieldset"],
+      "weight": 0.8
+    },
+    "tailwind_layout": {
+      "description": "Tailwind layout utilities",
+      "patterns": ["flex", "grid", "cols-", "gap-", "space-", "justify-", "items-", "self-", "place-", "order-"],
+      "weight": 1.0
+    },
+    "tailwind_spacing": {
+      "description": "Tailwind spacing utilities",
+      "patterns": ["p-", "m-", "px-", "py-", "mt-", "mb-", "ml-", "mr-", "space-x-", "space-y-", "gap-"],
+      "weight": 0.8
+    },
+    "tailwind_typography": {
+      "description": "Tailwind typography utilities",
+      "patterns": ["text-", "font-", "tracking-", "leading-", "uppercase", "lowercase", "capitalize", "truncate", "whitespace-"],
+      "weight": 0.7
+    },
+    "tailwind_colors": {
+      "description": "Tailwind color utilities",
+      "patterns": ["bg-", "text-", "border-", "ring-", "placeholder-", "from-", "to-", "shadow-", "divide-", "stroke-", "fill-"],
+      "weight": 0.8
+    },
+    "tailwind_effects": {
+      "description": "Tailwind effects and transitions",
+      "patterns": ["hover:", "focus:", "active:", "disabled:", "transition-", "duration-", "ease-", "delay-", "animate-", "transform"],
+      "weight": 0.8
+    },
+    "tailwind_borders": {
+      "description": "Tailwind border utilities",
+      "patterns": ["border", "rounded-", "divide-", "ring-", "outline-", "shadow-"],
+      "weight": 0.6
+    },
+    "tailwind_interactivity": {
+      "description": "Tailwind interactivity utilities",
+      "patterns": ["cursor-", "select-", "resize-", "scroll-", "snap-", "touch-", "user-", "pointer-events-"],
+      "weight": 0.6
+    },
+    "form_elements": {
+      "description": "Form elements and styling",
+      "patterns": ["<form", "<input", "<select", "<textarea", "<button", "required", "placeholder", "focus:ring", "focus:border"],
+      "weight": 0.8
+    },
+    "dark_theme": {
+      "description": "Dark theme implementation",
+      "patterns": ["bg-gray-[89]00", "text-white", "text-gray-[23]00", "bg-gray-[78]00", "dark:", "dark-mode"],
+      "weight": 0.8
+    },
+    "image_handling": {
+      "description": "Image handling and positioning",
+      "patterns": ["<img", "object-", "w-", "h-", "max-w-", "max-h-", "bg-cover", "bg-center", "bg-no-repeat"],
+      "weight": 0.7
+    },
+    "interactive_cta": {
+      "description": "Interactive call-to-action elements",
+      "patterns": ["<button", "hover:", "focus:", "transition", "duration-", "shadow", "bg-", "text-", "rounded"],
+      "weight": 0.7
+    }
+  },
+  "plot_config": {
+    "main_metrics": ["ROUGE-1", "ROUGE-2", "ROUGE-L", "Structure", "Implementation"],
+    "implementation_features": null
+  }
+}
