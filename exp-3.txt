@@ -1,225 +1,127 @@
-Question: "I'm building a SaaS website and need help creating a pricing component section. Can you create a clean, light-themed pricing section with two tiers (free and paid) that display side-by-side on desktop but stack on mobile?
-I want the design to include these specific elements:
-A centered header section with a small 'Brand new' badge
-An eye-catching headline with some decorative SVG element
-A short subheading explaining the value proposition
-Two distinct pricing cards arranged in a grid
-Each card should have the plan type (Free/Premium), price, and a small icon
-A bulleted feature list with teal checkmark icons for each plan
-A prominent CTA button for each plan ('Start for free' for the free tier, 'Get started' for the paid tier)
-A short explanatory text below each button
-For styling details:
-Use Tailwind CSS (via CDN: @tailwindcss/browser@4)
-Light theme with white backgrounds, subtle borders, and shadows
-Teal accent colors (teal-50, teal-600) with dark gray text
-The premium tier's button should have a teal background to stand out, while the free tier should have a dark gray button
-Include hover states and simple transitions for the buttons
-Use sans-serif font with varied weights and tracking
-Make sure everything has consistent rounded corners and subtle shadows for depth
-Include appropriate border separators within cards
-Can you implement this responsive pricing component that looks modern with subtle decorative elements and adapts well to mobile screens? I want the premium option to stand out with teal accents to encourage upgrades."
+Question: "I'm building a SaaS website and need help creating a pricing component section. Can you create a clean, light-themed pricing section with two tiers (free and paid) that display side-by-side on desktop but stack on mobile? I want the design to include these specific elements: A centered header section with a small 'Brand new' badge An eye-catching headline with some decorative SVG element A short subheading explaining the value proposition Two distinct pricing cards arranged in a grid Each card should have the plan type (Free/Premium), price, and a small icon A bulleted feature list with teal checkmark icons for each plan A prominent CTA button for each plan ('Start for free' for the free tier, 'Get started' for the paid tier) A short explanatory text below each button For styling details: Use Tailwind CSS (via CDN: @tailwindcss/browser@4) Light theme with white backgrounds, subtle borders, and shadows Teal accent colors (teal-50, teal-600) with dark gray text The premium tier's button should have a teal background to stand out, while the free tier should have a dark gray button Include hover states and simple transitions for the buttons Use sans-serif font with varied weights and tracking Make sure everything has consistent rounded corners and subtle shadows for depth Include appropriate border separators within cards Can you implement this responsive pricing component that looks modern with subtle decorative elements and adapts well to mobile screens? I want the premium option to stand out with teal accents to encourage upgrades."
 
 --------------------------
 
 Standard Answer Code: "
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Light Theme Version</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <style>
-        @media (max-width: 250px) {
-            body {
-                display: none !important
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing Section - Light Theme</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
-
-<body class="bg-white">
-    <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-        <div class="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
-            <div>
-                <p class="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-200">
-                    Brand new
-                </p>
-            </div>
-            <h2 class="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
-                <span class="relative inline-block">
-                    <svg viewBox="0 0 52 24" fill="currentColor" class="absolute top-0 left-0 z-0 hidden w-32 -mt-8 -ml-20 text-gray-200 lg:w-32 lg:-ml-28 lg:-mt-10 sm:block">
-                        <defs>
-                            <pattern id="ace59d72-08d5-4850-b9e4-d9d0b86c0525" x="0" y="0" width=".135" height=".30">
-                                <circle cx="1" cy="1" r=".7"></circle>
-                            </pattern>
-                        </defs>
-                        <rect fill="url(#ace59d72-08d5-4850-b9e4-d9d0b86c0525)" width="52" height="24"></rect>
-                    </svg>
-                    <span class="relative">Transparent</span>
-                </span>
-                pricing. Pay as you grow.
-            </h2>
-            <p class="text-base text-gray-700 md:text-lg">
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque rem aperiam, eaque ipsa quae.
-            </p>
-        </div>
-        <div class="grid max-w-md gap-10 row-gap-5 sm:row-gap-10 lg:max-w-screen-md lg:grid-cols-2 sm:mx-auto">
-            <div class="flex flex-col justify-between p-5 bg-white border rounded shadow-sm">
-                <div class="mb-6">
-                    <div class="flex items-center justify-between pb-6 mb-6 border-b">
-                        <div>
-                            <p class="text-sm font-bold tracking-wider uppercase">
-                                Personal use
-                            </p>
-                            <p class="text-5xl font-extrabold">Free</p>
-                        </div>
-                        <div class="flex items-center justify-center w-24 h-24 rounded-full bg-gray-100">
-                            <svg class="w-10 h-10 text-gray-600" viewBox="0 0 24 24" stroke-linecap="round" stroke-width="2">
-                                <path d="M12,7L12,7 c-1.657,0-3-1.343-3-3v0c0-1.657,1.343-3,3-3h0c1.657,0,3,1.343,3,3v0C15,5.657,13.657,7,12,7z" fill="none" stroke="currentColor"></path>
-                                <path d="M15,23H9v-5H7v-6 c0-1.105,0.895-2,2-2h6c1.105,0,2,0.895,2,2v6h-2V23z" fill="none" stroke="currentColor"></path>
-                            </svg>
-                        </div>
-                    </div>
-                    <div>
-                        <p class="mb-2 font-bold tracking-wide">Features</p>
-                        <ul class="space-y-2">
-                            <li class="flex items-center">
-                                <div class="mr-2">
-                                    <svg class="w-4 h-4 text-teal-600" viewBox="0 0 24 24" stroke-linecap="round" stroke-width="2">
-                                        <polyline fill="none" stroke="currentColor" points="6,12 10,16 18,8"></polyline>
-                                        <circle cx="12" cy="12" fill="none" r="11" stroke="currentColor"></circle>
-                                    </svg>
-                                </div>
-                                <p class="font-medium text-gray-800">10 deploys per day</p>
-                            </li>
-                            <li class="flex items-center">
-                                <div class="mr-2">
-                                    <svg class="w-4 h-4 text-teal-600" viewBox="0 0 24 24" stroke-linecap="round" stroke-width="2">
-                                        <polyline fill="none" stroke="currentColor" points="6,12 10,16 18,8"></polyline>
-                                        <circle cx="12" cy="12" fill="none" r="11" stroke="currentColor"></circle>
-                                    </svg>
-                                </div>
-                                <p class="font-medium text-gray-800">10 GB of storage</p>
-                            </li>
-                            <li class="flex items-center">
-                                <div class="mr-2">
-                                    <svg class="w-4 h-4 text-teal-600" viewBox="0 0 24 24" stroke-linecap="round" stroke-width="2">
-                                        <polyline fill="none" stroke="currentColor" points="6,12 10,16 18,8"></polyline>
-                                        <circle cx="12" cy="12" fill="none" r="11" stroke="currentColor"></circle>
-                                    </svg>
-                                </div>
-                                <p class="font-medium text-gray-800">Unlimited domains</p>
-                            </li>
-                            <li class="flex items-center">
-                                <div class="mr-2">
-                                    <svg class="w-4 h-4 text-teal-600" viewBox="0 0 24 24" stroke-linecap="round" stroke-width="2">
-                                        <polyline fill="none" stroke="currentColor" points="6,12 10,16 18,8"></polyline>
-                                        <circle cx="12" cy="12" fill="none" r="11" stroke="currentColor"></circle>
-                                    </svg>
-                                </div>
-                                <p class="font-medium text-gray-800">SSL Certificates</p>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div>
-                    <a href="/" class="inline-flex items-center justify-center w-full h-12 px-6 mb-4 font-medium tracking-wide text-white transition duration-200 bg-gray-800 rounded shadow-md hover:bg-gray-900 focus:shadow-outline focus:outline-none">
-                        Start for free
-                    </a>
-                    <p class="text-sm text-gray-600">
-                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-                    </p>
-                </div>
-            </div>
-            <div class="flex flex-col justify-between p-5 bg-white border rounded shadow-sm">
-                <div class="mb-6">
-                    <div class="flex items-center justify-between pb-6 mb-6 border-b">
-                        <div>
-                            <p class="text-sm font-bold tracking-wider uppercase">
-                                For your team
-                            </p>
-                            <p class="text-5xl font-extrabold">$39</p>
-                        </div>
-                        <div class="flex items-center justify-center w-24 h-24 rounded-full bg-teal-50">
-                            <svg class="w-10 h-10 text-teal-600" viewBox="0 0 24 24" stroke-linecap="round" stroke-width="2">
-                                <path d="M4,7L4,7 C2.895,7,2,6.105,2,5v0c0-1.105,0.895-2,2-2h0c1.105,0,2,0.895,2,2v0C6,6.105,5.105,7,4,7z" fill="none" stroke="currentColor"></path>
-                                <path d="M6,21H3v-4 l-2,0v-5c0-1.105,0.895-2,2-2h1" fill="none" stroke="currentColor"></path>
-                                <path d="M20,7L20,7 c1.105,0,2-0.895,2-2v0c0-1.105-0.895-2-2-2h0c-1.105,0-2,0.895-2,2v0C18,6.105,18.895,7,20,7z" fill="none" stroke="currentColor"></path>
-                                <path d="M18,21h3v-4 l2,0v-5c0-1.105-0.895-2-2-2h-1" fill="none" stroke="currentColor"></path>
-                                <path d="M12,7L12,7 c-1.657,0-3-1.343-3-3v0c0-1.657,1.343-3,3-3h0c1.657,0,3,1.343,3,3v0C15,5.657,13.657,7,12,7z" fill="none" stroke="currentColor"></path>
-                                <path d="M15,23H9v-6H7v-5 c0-1.105,0.895-2,2-2h6c1.105,0,2,0.895,2,2v6h-2V23z" fill="none" stroke="currentColor"></path>
-                            </svg>
-                        </div>
-                    </div>
-                    <div>
-                        <p class="mb-2 font-bold tracking-wide">Features</p>
-                        <ul class="space-y-2">
-                            <li class="flex items-center">
-                                <div class="mr-2">
-                                    <svg class="w-4 h-4 text-teal-600" viewBox="0 0 24 24" stroke-linecap="round" stroke-width="2">
-                                        <polyline fill="none" stroke="currentColor" points="6,12 10,16 18,8"></polyline>
-                                        <circle cx="12" cy="12" fill="none" r="11" stroke="currentColor"></circle>
-                                    </svg>
-                                </div>
-                                <p class="font-medium text-gray-800">Unlimited deploys</p>
-                            </li>
-                            <li class="flex items-center">
-                                <div class="mr-2">
-                                    <svg class="w-4 h-4 text-teal-600" viewBox="0 0 24 24" stroke-linecap="round" stroke-width="2">
-                                        <polyline fill="none" stroke="currentColor" points="6,12 10,16 18,8"></polyline>
-                                        <circle cx="12" cy="12" fill="none" r="11" stroke="currentColor"></circle>
-                                    </svg>
-                                </div>
-                                <p class="font-medium text-gray-800">Up to 10 Team Members</p>
-                            </li>
-                            <li class="flex items-center">
-                                <div class="mr-2">
-                                    <svg class="w-4 h-4 text-teal-600" viewBox="0 0 24 24" stroke-linecap="round" stroke-width="2">
-                                        <polyline fill="none" stroke="currentColor" points="6,12 10,16 18,8"></polyline>
-                                        <circle cx="12" cy="12" fill="none" r="11" stroke="currentColor"></circle>
-                                    </svg>
-                                </div>
-                                <p class="font-medium text-gray-800">100 GB of starge</p>
-                            </li>
-                            <li class="flex items-center">
-                                <div class="mr-2">
-                                    <svg class="w-4 h-4 text-teal-600" viewBox="0 0 24 24" stroke-linecap="round" stroke-width="2">
-                                        <polyline fill="none" stroke="currentColor" points="6,12 10,16 18,8"></polyline>
-                                        <circle cx="12" cy="12" fill="none" r="11" stroke="currentColor"></circle>
-                                    </svg>
-                                </div>
-                                <p class="font-medium text-gray-800">24/7 support</p>
-                            </li>
-                            <li class="flex items-center">
-                                <div class="mr-2">
-                                    <svg class="w-4 h-4 text-teal-600" viewBox="0 0 24 24" stroke-linecap="round" stroke-width="2">
-                                        <polyline fill="none" stroke="currentColor" points="6,12 10,16 18,8"></polyline>
-                                        <circle cx="12" cy="12" fill="none" r="11" stroke="currentColor"></circle>
-                                    </svg>
-                                </div>
-                                <p class="font-medium text-gray-800">Global CDN</p>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div>
-                    <a
-                        href="/"
-                        class="inline-flex items-center justify-center w-full h-12 px-6 mb-4 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-teal-600 hover:bg-teal-700 focus:shadow-outline focus:outline-none"
-                    >
-                        Get started
-                    </a>
-                    <p class="text-sm text-gray-600">
-                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-                    </p>
-                </div>
-            </div>
-        </div>
+<body class="bg-gray-50">
+  <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+    <div class="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
+      <div>
+        <p class="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-400">
+          Our Pricing
+        </p>
+      </div>
+      <h2 class="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
+        <span class="relative inline-block">
+          <svg viewBox="0 0 52 24" fill="currentColor" class="absolute top-0 left-0 z-0 hidden w-32 -mt-8 -ml-20 text-blue-100 lg:w-32 lg:-ml-28 lg:-mt-10 sm:block">
+            <defs>
+              <pattern id="7e5e8ff8-1960-4094-a63a-2a0c0f922d69" x="0" y="0" width=".135" height=".30">
+                <circle cx="1" cy="1" r=".7"></circle>
+              </pattern>
+            </defs>
+            <rect fill="url(#7e5e8ff8-1960-4094-a63a-2a0c0f922d69)" width="52" height="24"></rect>
+          </svg>
+          <span class="relative">Transparent</span>
+        </span>
+        pricing. Pay as you grow.
+      </h2>
+      <p class="text-base text-gray-700 md:text-lg">
+        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque rem aperiam, eaque ipsa quae.
+      </p>
     </div>
-</body>
+    <div class="grid max-w-md gap-10 row-gap-5 lg:max-w-screen-lg sm:row-gap-10 lg:grid-cols-3 xl:max-w-screen-lg sm:mx-auto">
+      <div class="flex flex-col justify-between p-8 transition-shadow duration-300 bg-white border rounded shadow-sm sm:items-center hover:shadow">
+        <div class="text-center">
+          <div class="text-lg font-semibold">Start</div>
+          <div class="flex items-center justify-center mt-2">
+            <div class="mr-1 text-5xl font-bold">Free</div>
+          </div>
+          <div class="mt-2 space-y-3">
+            <div class="text-gray-700">10 deploys per day</div>
+            <div class="text-gray-700">10 GB of storage</div>
+            <div class="text-gray-700">20 domains</div>
+          </div>
+        </div>
+        <div>
+          <a href="/" class="inline-flex items-center justify-center w-full h-12 px-6 mt-6 font-medium tracking-wide text-white transition duration-200 bg-gray-800 rounded shadow-md hover:bg-gray-900 focus:shadow-outline focus:outline-none">
+            Start for free
+          </a>
+          <p class="max-w-xs mt-6 text-xs text-gray-600 sm:text-sm sm:text-center sm:max-w-sm sm:mx-auto">
+            Sed ut unde omnis iste natus accusantium doloremque.
+          </p>
+        </div>
+      </div>
+      <div class="relative flex flex-col justify-between p-8 transition-shadow duration-300 bg-white border rounded shadow-sm sm:items-center hover:shadow border-purple-500">
+        <div class="absolute inset-x-0 top-0 flex justify-center -mt-3">
+          <div class="inline-block px-3 py-1 text-xs font-medium tracking-wider text-white uppercase rounded bg-purple-600">
+            Most Popular
+          </div>
+        </div>
+        <div class="text-center">
+          <div class="text-lg font-semibold">Pro</div>
+          <div class="flex items-center justify-center mt-2">
+            <div class="mr-1 text-5xl font-bold">$38</div>
+            <div class="text-gray-700">/ mo</div>
+          </div>
+          <div class="mt-2 space-y-3">
+            <div class="text-gray-700">200 deploys per day</div>
+            <div class="text-gray-700">80 GB of storage</div>
+            <div class="text-gray-700">Global CDN</div>
+          </div>
+        </div>
+        <div>
+          <a
+            href="/"
+            class="inline-flex items-center justify-center w-full h-12 px-6 mt-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-purple-600 hover:bg-purple-700 focus:shadow-outline focus:outline-none"
+          >
+            Buy Pro
+          </a>
+          <p class="max-w-xs mt-6 text-xs text-gray-600 sm:text-sm sm:text-center sm:max-w-sm sm:mx-auto">
+            Sed ut unde omnis iste natus accusantium doloremque.
+          </p>
+        </div>
+      </div>
+      <div class="flex flex-col justify-between p-8 transition-shadow duration-300 bg-white border rounded shadow-sm sm:items-center hover:shadow">
+        <div class="text-center">
+          <div class="text-lg font-semibold">Business</div>
+          <div class="flex items-center justify-center mt-2">
+            <div class="mr-1 text-5xl font-bold">$78</div>
+            <div class="text-gray-700">/ mo</div>
+          </div>
+          <div class="mt-2 space-y-3">
+            <div class="text-gray-700">500 GB of storage</div>
+            <div class="text-gray-700">Unlimited domains</div>
+            <div class="text-gray-700">24/7 Support</div>
+          </div>
+        </div>
+        <div>
+          <a href="/" class="inline-flex items-center justify-center w-full h-12 px-6 mt-6 font-medium tracking-wide text-white transition duration-200 bg-gray-800 rounded shadow-md hover:bg-gray-900 focus:shadow-outline focus:outline-none">
+            Buy Business
+          </a>
+          <p class="max-w-xs mt-6 text-xs text-gray-600 sm:text-sm sm:text-center sm:max-w-sm sm:mx-auto">
+            Sed ut unde omnis iste natus accusantium doloremque.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 
+  <style>
+    @media (max-width: 250px) {
+      body {
+        display: none;
+      }
+    }
+  </style>
+</body>
 </html>
 "
 
@@ -230,6 +132,101 @@ Responses:
 ----
 
 GPT: "
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pricing Section</title>
+    <script src="https://cdn.tailwindcss.com/4"></script>
+  </head>
+  <body class="bg-white font-sans text-gray-800">
+    <section class="py-16 px-4 max-w-7xl mx-auto">
+      <!-- Header -->
+      <div class="text-center mb-12">
+        <span class="inline-block px-3 py-1 text-sm font-medium bg-teal-50 text-teal-600 rounded-full mb-4">Brand new</span>
+        <h2 class="text-4xl font-extrabold tracking-tight mb-3 relative inline-block">
+          <svg class="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 text-teal-50" fill="currentColor" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" />
+          </svg>
+          Pricing Plans
+        </h2>
+        <p class="max-w-xl mx-auto text-lg text-gray-600">Choose the plan that fits your needs. Start for free and upgrade anytime.</p>
+      </div>
+
+      <!-- Pricing Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Free Tier -->
+        <div class="border border-gray-200 shadow-sm rounded-2xl p-8 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center mb-4">
+              <svg class="w-6 h-6 text-teal-600 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2a10 10 0 100 20 10 10 0 000-20z"/>
+              </svg>
+              <h3 class="text-xl font-semibold">Free</h3>
+            </div>
+            <div class="text-3xl font-bold mb-4">$0<span class="text-base font-medium">/mo</span></div>
+            <ul class="space-y-2 text-gray-700">
+              <li class="flex items-center">
+                <svg class="w-5 h-5 text-teal-600 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20 6L9 17l-5-5" />
+                </svg>
+                Basic analytics
+              </li>
+              <li class="flex items-center">
+                <svg class="w-5 h-5 text-teal-600 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20 6L9 17l-5-5" />
+                </svg>
+                Limited projects
+              </li>
+            </ul>
+          </div>
+          <div class="mt-8">
+            <button class="w-full bg-gray-800 text-white text-sm font-semibold py-3 rounded-xl hover:bg-gray-700 transition">Start for free</button>
+            <p class="text-sm text-gray-500 mt-2 text-center">No credit card required</p>
+          </div>
+        </div>
+
+        <!-- Premium Tier -->
+        <div class="border border-gray-200 shadow-md rounded-2xl p-8 flex flex-col justify-between bg-teal-50">
+          <div>
+            <div class="flex items-center mb-4">
+              <svg class="w-6 h-6 text-teal-600 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2a10 10 0 100 20 10 10 0 000-20z"/>
+              </svg>
+              <h3 class="text-xl font-semibold">Premium</h3>
+            </div>
+            <div class="text-3xl font-bold mb-4">$29<span class="text-base font-medium">/mo</span></div>
+            <ul class="space-y-2 text-gray-700">
+              <li class="flex items-center">
+                <svg class="w-5 h-5 text-teal-600 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20 6L9 17l-5-5" />
+                </svg>
+                Advanced analytics
+              </li>
+              <li class="flex items-center">
+                <svg class="w-5 h-5 text-teal-600 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20 6L9 17l-5-5" />
+                </svg>
+                Unlimited projects
+              </li>
+              <li class="flex items-center">
+                <svg class="w-5 h-5 text-teal-600 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20 6L9 17l-5-5" />
+                </svg>
+                Priority support
+              </li>
+            </ul>
+          </div>
+          <div class="mt-8">
+            <button class="w-full bg-teal-600 text-white text-sm font-semibold py-3 rounded-xl hover:bg-teal-700 transition">Get started</button>
+            <p class="text-sm text-gray-500 mt-2 text-center">Upgrade anytime. Cancel easily.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
 
 "
 
@@ -237,10 +234,259 @@ GPT: "
 ----
 
 GEMINI: "
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing</title>
+    <script src="https://cdn.tailwindcss.com/@tailwindcss/browser@4"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        teal: {
+                            50: '#e0f2f1',
+                            600: '#008080',
+                        },
+                        gray: {
+                            700: '#4b5563',
+                            800: '#2d3748',
+                        },
+                    },
+                    fontFamily: {
+                        sans: ['ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'],
+                    },
+                    letterSpacing: {
+                        tightest: '-.075em',
+                        tighter: '-.05em',
+                        tight: '-.025em',
+                        normal: '0em',
+                        wide: '.025em',
+                        wider: '.05em',
+                        widest: '.1em',
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-gray-50 font-sans">
+    <div class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <span class="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-teal-50 text-teal-600">
+                    Brand new
+                </span>
+                <h2 class="mt-2 text-3xl leading-8 font-extrabold text-gray-800 sm:text-4xl">
+                    <svg class="inline-block w-8 h-8 mr-2 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                    </svg>
+                    Unlock Your Potential with Our Flexible Plans
+                </h2>
+                <p class="mt-4 text-lg text-gray-700">
+                    Choose the perfect plan to elevate your SaaS experience.
+                </p>
+            </div>
 
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden transition-shadow hover:shadow-lg">
+                    <div class="px-6 py-8">
+                        <div class="flex items-center justify-between mb-4 border-b pb-4">
+                            <h3 class="text-xl font-semibold text-gray-800 tracking-tight">Free</h3>
+                            <svg class="w-6 h-6 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <div class="mb-6">
+                            <span class="text-3xl font-bold text-gray-800 tracking-tight">$0</span>
+                            <span class="text-gray-700">/month</span>
+                        </div>
+                        <ul class="mb-8 space-y-3">
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 mr-2 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                Basic features included
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 mr-2 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                Limited support
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 mr-2 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                Up to 5 users
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 mr-2 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                2 GB storage
+                            </li>
+                        </ul>
+                        <div class="mt-6">
+                            <a href="#" class="block w-full py-3 px-6 rounded-md shadow-md text-center font-semibold text-white bg-gray-700 hover:bg-gray-800 transition duration-300">
+                                Start for free
+                            </a>
+                            <p class="mt-2 text-sm text-gray-500 text-center">No credit card required.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-md overflow-hidden transition-shadow hover:shadow-lg">
+                    <div class="px-6 py-8">
+                        <div class="flex items-center justify-between mb-4 border-b pb-4">
+                            <h3 class="text-xl font-semibold text-gray-800 tracking-tight">Premium</h3>
+                            <svg class="w-6 h-6 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7m-8 5v5m-5-5h10" />
+                            </svg>
+                        </div>
+                        <div class="mb-6">
+                            <span class="text-4xl font-bold text-gray-800 tracking-tight">$29</span>
+                            <span class="text-gray-700">/month</span>
+                        </div>
+                        <ul class="mb-8 space-y-3">
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 mr-2 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                All free features included
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 mr-2 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                Priority support
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 mr-2 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                Unlimited users
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 mr-2 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                100 GB storage
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 mr-2 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                Advanced analytics
+                            </li>
+                        </ul>
+                        <div class="mt-6">
+                            <a href="#" class="block w-full py-3 px-6 rounded-md shadow-md text-center font-semibold text-white bg-teal-600 hover:bg-teal-700 transition duration-300">
+                                Get started
+                            </a>
+                            <p class="mt-2 text-sm text-gray-500 text-center">Unlock premium features today!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
 
 "
 
 RAG SYSTEM: "
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing Section - Light Theme</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="bg-white">
+    <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+        <div class="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
+            <div>
+                <p class="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-400">
+                    Brand new
+                </p>
+            </div>
+            <h2 class="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
+                <span class="relative inline-block">
+                    <svg viewBox="0 0 52 24" fill="currentColor"
+                        class="absolute top-0 left-0 z-0 hidden w-32 -mt-8 -ml-20 text-blue-100 lg:w-32 lg:-ml-28 lg:-mt-10 sm:block">
+                        <defs>
+                            <pattern id="7e5e8ff8-1960-4094-a63a-2a0c0f922d69" x="0" y="0" width=".135" height=".30">
+                                <circle cx="1" cy="1" r=".7"></circle>
+                            </pattern>
+                        </defs>
+                        <rect fill="url(#7e5e8ff8-1960-4094-a63a-2a0c0f922d69)" width="52" height="24"></rect>
+                    </svg>
+                    <span class="relative">Modern Pricing</span>
+                </span>
+                for your business.
+            </h2>
+            <p class="text-base text-gray-700 md:text-lg">
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque rem aperiam, eaque
+                ipsa quae.
+            </p>
+        </div>
+        <div class="grid max-w-md gap-10 row-gap-5 lg:max-w-screen-lg sm:row-gap-10 lg:grid-cols-2 xl:max-w-screen-lg sm:mx-auto">
+            <div class="flex flex-col justify-between p-8 transition-shadow duration-300 bg-white border rounded shadow-sm sm:items-center hover:shadow">
+                <div class="text-center">
+                    <div class="text-lg font-semibold">Free</div>
+                    <div class="flex items-center justify-center mt-2">
+                        <div class="mr-1 text-5xl font-bold">Free</div>
+                    </div>
+                    <div class="mt-2 space-y-3">
+                        <div class="text-gray-700">10 deploys per day</div>
+                        <div class="text-gray-700">10 GB of storage</div>
+                        <div class="text-gray-700">20 domains</div>
+                    </div>
+                </div>
+                <div>
+                    <a href="/" class="inline-flex items-center justify-center w-full h-12 px-6 mt-6 font-medium tracking-wide text-white transition duration-200 bg-gray-800 rounded shadow-md hover:bg-gray-900 focus:shadow-outline focus:outline-none">
+                        Start for free
+                    </a>
+                    <p class="max-w-xs mt-6 text-xs text-gray-600 sm:text-sm sm:text-center sm:max-w-sm sm:mx-auto">
+                        Sed ut unde omnis iste natus accusantium doloremque.
+                    </p>
+                </div>
+            </div>
+            <div class="flex flex-col justify-between p-8 transition-shadow duration-300 bg-white border rounded shadow-sm sm:items-center hover:shadow border-teal-600">
+                <div class="text-center">
+                    <div class="text-lg font-semibold">Premium</div>
+                    <div class="flex items-center justify-center mt-2">
+                        <div class="mr-1 text-5xl font-bold">$19</div>
+                        <div class="text-gray-700">/ mo</div>
+                    </div>
+                    <div class="mt-2 space-y-3">
+                        <div class="text-gray-700">Unlimited deploys</div>
+                        <div class="text-gray-700">50 GB of storage</div>
+                        <div class="text-gray-700">Custom domains</div>
+                    </div>
+                </div>
+                <div>
+                    <a href="/" class="inline-flex items-center justify-center w-full h-12 px-6 mt-6 font-medium tracking-wide text-white transition duration-200 bg-teal-600 rounded shadow-md hover:bg-teal-700 focus:shadow-outline focus:outline-none">
+                        Get started
+                    </a>
+                    <p class="max-w-xs mt-6 text-xs text-gray-600 sm:text-sm sm:text-center sm:max-w-sm sm:mx-auto">
+                        Sed ut unde omnis iste natus accusantium doloremque.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
 
 "
