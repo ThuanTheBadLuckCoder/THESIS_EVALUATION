@@ -9,7 +9,7 @@ Installation:
     pip install rouge_score matplotlib pandas seaborn pyyaml
     
 Usage Instructions:
-    python evaluation-3.py --file exp-3.txt --output-dir evaluation_results --config tailwind_web_eval_config.json
+    python evaluation-3.py --file exp-4.txt --output-dir evaluation_results --config tailwind_web_eval_config.json
 """
 
 import re

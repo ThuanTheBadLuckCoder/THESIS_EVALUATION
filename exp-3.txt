@@ -138,7 +138,7 @@ GPT: "
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pricing Section</title>
-    <script src="https://cdn.tailwindcss.com/4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   </head>
   <body class="bg-white font-sans text-gray-800">
     <section class="py-16 px-4 max-w-7xl mx-auto">
